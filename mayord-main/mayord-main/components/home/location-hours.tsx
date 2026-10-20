@@ -1,3 +1,4 @@
+import ConsentMap from "@/components/consent/consent-map"
 import { hours, hoursEs, siteConfig } from "@/lib/data"
 import type { Locale } from "@/lib/i18n"
 import DirectionsLink from "@/components/directions-link"
@@ -20,15 +21,7 @@ export default function LocationHours({ locale = "en" }: { locale?: Locale }) {
         <div className="flex flex-col lg:flex-row gap-16 items-start">
           <div className="flex-1 w-full text-gray-900">
             <div className="w-full bg-gray-100 overflow-hidden h-[300px] mb-6">
-              <iframe
-                src={siteConfig.mapEmbedUrl}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Mayo RD Tire Shop Location"
-              />
+              <ConsentMap title="Mayo RD Tire Shop Location" />
             </div>
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
               <div>

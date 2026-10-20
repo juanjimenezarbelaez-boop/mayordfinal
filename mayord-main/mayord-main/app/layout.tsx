@@ -3,6 +3,8 @@ import Script from "next/script"
 import { Work_Sans, Lexend, Space_Grotesk } from "next/font/google"
 import ConditionalChrome from "@/components/conditional-chrome"
 import HtmlLangSetter from "@/components/html-lang-setter"
+import CookieConsent from "@/components/consent/cookie-consent"
+import { consentBootstrapScript } from "@/lib/consent"
 import { GA_CONVERSION_ID, GTAG_ID } from "@/lib/gtag"
 import { siteConfig } from "@/lib/data"
 import { SITE_URL, OG_IMAGE, localBusinessSchema, jsonLdProps } from "@/lib/seo"
@@ -59,22 +61,24 @@ export default function RootLayout({
         <script {...jsonLdProps(localBusinessSchema())} />
         <HtmlLangSetter />
         <ConditionalChrome>{children}</ConditionalChrome>
+        <CookieConsent />
 
         {/* Google Tag (gtag.js) — loads the Google tag / Ads conversion tag.
-            Uses NEXT_PUBLIC_GTAG_ID when set, always configures the Ads id. */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID || GA_CONVERSION_ID}`}
-          strategy="afterInteractive"
-        />
+            Uses NEXT_PUBLIC_GTAG_ID when set, always configures the Ads id.
+            Consent Mode v2 defaults are queued first so no analytics/ads
+            cookies are written until the visitor opts in. */}
         <Script id="google-tag" strategy="afterInteractive">
           {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
+            ${consentBootstrapScript}
             gtag('js', new Date());
             ${GTAG_ID ? `gtag('config', '${GTAG_ID}');` : ""}
             gtag('config', '${GA_CONVERSION_ID}');
           `}
         </Script>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID || GA_CONVERSION_ID}`}
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   )
