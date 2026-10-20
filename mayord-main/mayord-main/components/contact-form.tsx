@@ -1,6 +1,8 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
+import { legalRoutes } from "@/lib/legal-routes"
 import { Check, Clock, MessageCircle, Phone, Send } from "lucide-react"
 import { siteConfig, whatsappHref } from "@/lib/data"
 import type { Locale } from "@/lib/i18n"
@@ -83,6 +85,8 @@ const t = {
     submit: "GET MY QUOTE",
     footerPre: "We reply within the hour during business hours. Prefer to talk? Call ",
     footerPost: " — Hablamos Español.",
+    privacyPre: "We use your details only to respond to this request. See our ",
+    privacyLink: "Privacy Policy",
   },
   es: {
     whatsappMessage: "¡Hola! Me gustaría una cotización de llantas.",
@@ -110,6 +114,8 @@ const t = {
     submit: "QUIERO MI COTIZACIÓN",
     footerPre: "Respondemos dentro de una hora en horario de atención. ¿Prefiere hablar? Llame ",
     footerPost: " — Hablamos Español.",
+    privacyPre: "Usamos sus datos solo para responder a esta solicitud. Consulte nuestra ",
+    privacyLink: "Política de Privacidad",
   },
 }
 
@@ -338,6 +344,13 @@ export default function ContactForm({ locale = "en" }: { locale?: Locale }) {
             {siteConfig.phone}
           </a>
           {c.footerPost}
+        </p>
+        <p className="text-sm text-gray-500 mt-2 leading-relaxed">
+          {c.privacyPre}
+          <Link href={legalRoutes[locale].privacy} className="text-brand-orange font-bold hover:underline">
+            {c.privacyLink}
+          </Link>
+          .
         </p>
       </div>
     </form>

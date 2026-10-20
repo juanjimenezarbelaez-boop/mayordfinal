@@ -1,3 +1,4 @@
+import ConsentMap from "@/components/consent/consent-map"
 import type { Metadata } from "next"
 import {
   BadgeCheck,
@@ -212,16 +213,7 @@ export default function UsedTiresLandingPage() {
       <section>
         <div className="mx-auto grid max-w-6xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-2">
           <div className="overflow-hidden rounded-2xl border border-brand-surface-light">
-            <iframe
-              src={siteConfig.mapEmbedUrl}
-              title="Map to Mayo RD Tire Shop, 175 Mayo Rd, Edgewater, MD"
-              width="100%"
-              height="100%"
-              style={{ border: 0, minHeight: 320 }}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
+            <ConsentMap title="Map to Mayo RD Tire Shop, 175 Mayo Rd, Edgewater, MD" />
           </div>
 
           <div className="flex flex-col justify-center">

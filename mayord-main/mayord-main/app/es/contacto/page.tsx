@@ -1,3 +1,4 @@
+import ConsentMap from "@/components/consent/consent-map"
 import type { Metadata } from "next"
 import Image from "next/image"
 import { Clock, ExternalLink, MapPin, Phone } from "lucide-react"
@@ -138,15 +139,7 @@ export default function ContactoPage() {
           </div>
 
           <div className="w-full h-[500px] rounded-3xl overflow-hidden">
-            <iframe
-              src={siteConfig.mapEmbedUrl}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Ubicación de Mayo RD Tire Shop"
-            />
+            <ConsentMap title="Ubicación de Mayo RD Tire Shop" />
           </div>
         </div>
       </section>
