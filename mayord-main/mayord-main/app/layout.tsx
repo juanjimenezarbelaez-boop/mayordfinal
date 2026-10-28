@@ -5,7 +5,8 @@ import ConditionalChrome from "@/components/conditional-chrome"
 import HtmlLangSetter from "@/components/html-lang-setter"
 import CookieConsent from "@/components/consent/cookie-consent"
 import { consentBootstrapScript } from "@/lib/consent"
-import { GA_CONVERSION_ID, GTAG_ID } from "@/lib/gtag"
+import ConversionTracker from "@/components/conversion-tracker"
+import { GA_CONVERSION_ID } from "@/lib/gtag"
 import { siteConfig } from "@/lib/data"
 import { SITE_URL, OG_IMAGE, localBusinessSchema, jsonLdProps } from "@/lib/seo"
 import "./globals.css"
@@ -62,21 +63,24 @@ export default function RootLayout({
         <HtmlLangSetter />
         <ConditionalChrome>{children}</ConditionalChrome>
         <CookieConsent />
+        <ConversionTracker />
 
-        {/* Google Tag (gtag.js) — loads the Google tag / Ads conversion tag.
-            Uses NEXT_PUBLIC_GTAG_ID when set, always configures the Ads id.
-            Consent Mode v2 defaults are queued first so no analytics/ads
-            cookies are written until the visitor opts in. */}
+        {/* Consent Mode v2 defaults are queued before gtag.js so no ads
+            cookies are written until the visitor opts in. Only the Google
+            Ads tag is loaded — no Google Tag Manager containers. */}
+        <Script id="consent-defaults" strategy="beforeInteractive">
+          {consentBootstrapScript}
+        </Script>
         <Script id="google-tag" strategy="afterInteractive">
           {`
-            ${consentBootstrapScript}
-            gtag('js', new Date());
-            ${GTAG_ID ? `gtag('config', '${GTAG_ID}');` : ""}
-            gtag('config', '${GA_CONVERSION_ID}');
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+            window.gtag('js', new Date());
+            window.gtag('config', '${GA_CONVERSION_ID}');
           `}
         </Script>
         <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID || GA_CONVERSION_ID}`}
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_CONVERSION_ID}`}
           strategy="afterInteractive"
         />
       </body>
