@@ -173,7 +173,7 @@ export const blogPosts: BlogPost[] = [
     date: "8/12/2026",
     dateISO: "2026-08-12",
     category: "Roadside Help",
-    image: "/blog/flat-tire-roadside.png",
+    image: "/blog/flat-tire-roadside.webp",
     content: [
       {
         body: [
@@ -214,7 +214,7 @@ export const blogPosts: BlogPost[] = [
     date: "8/12/2026",
     dateISO: "2026-08-12",
     category: "Pricing",
-    image: "/blog/mobile-tire-cost.png",
+    image: "/blog/mobile-tire-cost.webp",
     content: [
       {
         body: [
@@ -255,7 +255,7 @@ export const blogPosts: BlogPost[] = [
     date: "8/12/2026",
     dateISO: "2026-08-12",
     category: "Tire Safety",
-    image: "/blog/spare-tire-trunk.png",
+    image: "/blog/spare-tire-trunk.webp",
     content: [
       {
         body: [
@@ -297,7 +297,7 @@ export const blogPosts: BlogPost[] = [
     dateISO: "2026-05-26",
     category: "Tire Buying Guide",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/braindy-brand-guideline.firebasestorage.app/o/blog%2Fpost_thumbnail_1779818341971_ChatGPT%20Image%2026%20may%202026%2C%2010_58_41%20a.m.%20(1).png?alt=media&token=a5ef767f-163e-4100-9a48-a562b42ff810",
+      "/blog/post-1779818341971.webp",
     content: [
       {
         body: [
@@ -336,7 +336,7 @@ export const blogPosts: BlogPost[] = [
     dateISO: "2026-05-26",
     category: "Tire Safety",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/braindy-brand-guideline.firebasestorage.app/o/blog%2Fpost_thumbnail_1779818008240_ChatGPT%20Image%2026%20may%202026%2C%2010_52_53%20a.m.%20(1).png?alt=media&token=1ab2dd1d-61f9-4dd1-91b9-16ba52ebdf56",
+      "/blog/post-1779818008240.webp",
     content: [
       {
         body: [
@@ -385,7 +385,7 @@ export const blogPosts: BlogPost[] = [
     dateISO: "2026-05-26",
     category: "Tires",
     image:
-      "https://firebasestorage.googleapis.com/v0/b/braindy-brand-guideline.firebasestorage.app/o/blog%2Fpost_thumbnail_1779818116936_ChatGPT%20Image%2026%20may%202026%2C%2010_54_52%20a.m.%20(1).png?alt=media&token=cb6e378c-0e34-4e53-b946-917290d6d0c8",
+      "/blog/post-1779818116936.webp",
     content: [
       {
         body: [
@@ -422,11 +422,11 @@ export const blogPosts: BlogPost[] = [
 
 export const images = {
   homeHero:
-    "https://firebasestorage.googleapis.com/v0/b/braindy-brand-guideline.firebasestorage.app/o/homepage%2Fhero_image%2Fmayord%20branding%20(8).png?alt=media&token=56312f02-969b-433a-adc6-ffccbf3d89ea",
+    "/images/home-hero.webp",
   homeAbout:
     "https://firebasestorage.googleapis.com/v0/b/braindy-brand-guideline.firebasestorage.app/o/homepage%2Fabout_image%2Ffull-frame-shot-building.jpg?alt=media&token=18b63faf-8f56-4325-b7ad-31f50acd8da7",
   tiresHero:
-    "https://firebasestorage.googleapis.com/v0/b/braindy-brand-guideline.firebasestorage.app/o/homepage%2Ftires_hero_bg%2Fmayord--(1).png?alt=media&token=55ac5ab2-e5c2-435e-b383-5fcd34a48b3c",
+    "/images/tires-hero.webp",
   tiresTall:
     "https://firebasestorage.googleapis.com/v0/b/braindy-brand-guideline.firebasestorage.app/o/homepage%2Ftsg_left_tall_image%2Fcar-tires-stand-row-3d-rendering.jpg?alt=media&token=bb8de410-01e0-4bd6-9fe6-6cd1a8317a88",
   tiresDetail1:
@@ -438,7 +438,7 @@ export const images = {
   tiresDetail4:
     "https://firebasestorage.googleapis.com/v0/b/braindy-brand-guideline.firebasestorage.app/o/homepage%2Ftsg_tall_image_4%2Fclose-up-view-tire-with-tire-width-height-wheel-diameter-designation-tire-size-types-labels.jpg?alt=media&token=3a21cdfa-6d53-4110-920d-9258c7a3f33d",
   servicesHero:
-    "https://firebasestorage.googleapis.com/v0/b/braindy-brand-guideline.firebasestorage.app/o/homepage%2Fservices_hero_bg%2Fmayord--5.png?alt=media&token=a545717e-e3bb-47f9-91d7-0e1b8f0b696b",
+    "/images/services-hero.webp",
   serviceMounting:
     "https://firebasestorage.googleapis.com/v0/b/braindy-brand-guideline.firebasestorage.app/o/homepage%2Fserv_row_1_img%2Fo%20(12).jpg?alt=media&token=393965d4-7370-49d7-84e8-9ce07bc34310",
   serviceRepair:
@@ -450,7 +450,7 @@ export const images = {
   aboutHero:
     "https://firebasestorage.googleapis.com/v0/b/braindy-brand-guideline.firebasestorage.app/o/homepage%2Fabout_hero_bg%2Fmayord%20%20(2).png?alt=media&token=615470b3-78c3-47e5-ab7c-5b745428bfba",
   aboutStory:
-    "https://firebasestorage.googleapis.com/v0/b/braindy-brand-guideline.firebasestorage.app/o/homepage%2Fabout_story_img%2Fmayord--(1).png?alt=media&token=01e73d0d-ca05-478c-bc24-50cc49b5eaba",
+    "/images/about-story.webp",
   contactHero:
     "https://firebasestorage.googleapis.com/v0/b/braindy-brand-guideline.firebasestorage.app/o/homepage%2Fcontact_hero_bg%2FWhatsApp%20Image%202026-01-06%20at%201.23.38%20PM.jpeg?alt=media&token=be1151d3-edb6-4eed-81f6-8df85fc694d4",
   blogHero:
