@@ -103,11 +103,11 @@ export default function TireRotationLandingPageEs() {
 
           <p className="mt-6 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm font-medium text-brand-text-muted sm:text-base">
             <span className="inline-flex items-center gap-1 font-bold text-brand-orange">
-              4.4
+              4.7
               <Star size={16} className="fill-current" />
             </span>
             <span aria-hidden="true">&middot;</span>
-            <span>206 reseñas</span>
+            <span>300+ reseñas</span>
             <span aria-hidden="true">&middot;</span>
             <span>Negocio familiar</span>
             <span aria-hidden="true">&middot;</span>
@@ -179,7 +179,7 @@ export default function TireRotationLandingPageEs() {
               ))}
             </div>
             <p className="font-label text-lg font-bold text-white">
-              4.4 estrellas &middot; 206 reseñas
+              4.7 estrellas &middot; 300+ reseñas
             </p>
           </div>
           <figure className="max-w-2xl">

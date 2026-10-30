@@ -34,7 +34,7 @@ export const siteConfig = {
     "https://firebasestorage.googleapis.com/v0/b/braindy-brand-guideline.firebasestorage.app/o/MayoRD%2Fmayo%20rd%20logo%20(5).png?alt=media&token=272cafe7-e5ac-41a2-b3a1-b1fdad36444f",
   yelpLogoUrl:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Yelp_Logo.svg/500px-Yelp_Logo.svg.png",
-  rating: { value: "4.4", count: 206 },
+  rating: { value: "4.7", count: 300 },
 }
 
 export interface NavLink {

@@ -112,8 +112,8 @@ export function localBusinessSchema() {
     openingHoursSpecification: OPENING_HOURS,
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.4",
-      reviewCount: "206",
+      ratingValue: "4.7",
+      reviewCount: "300",
     },
     sameAs: [siteConfig.googleUrl, siteConfig.yelpUrl, siteConfig.facebookUrl],
     areaServed: [
