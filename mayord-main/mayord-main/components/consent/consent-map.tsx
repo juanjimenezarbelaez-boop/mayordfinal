@@ -30,7 +30,14 @@ export default function ConsentMap({ title }: { title: string }) {
 
   if (consent?.functional) {
     return (
-      <ConsentMap title={title} />
+      <iframe
+        src={siteConfig.mapEmbedUrl}
+        title={title}
+        className="h-full min-h-80 w-full border-0"
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        allowFullScreen
+      />
     )
   }
 
