@@ -89,7 +89,7 @@ export function localBusinessSchema() {
     "@id": BUSINESS_ID,
     name: siteConfig.name,
     url: SITE_URL,
-    logo: siteConfig.logoUrl,
+    logo: absoluteUrl("/icon.png"),
     image: absoluteUrl(OG_IMAGE),
     telephone: "+1-240-595-8547",
     priceRange: "$",
@@ -279,7 +279,7 @@ export function blogPostingSchema(post: {
     publisher: {
       "@type": "Organization",
       name: siteConfig.name,
-      logo: { "@type": "ImageObject", url: siteConfig.logoUrl },
+      logo: { "@type": "ImageObject", url: absoluteUrl("/icon.png") },
     },
     mainEntityOfPage: {
       "@type": "WebPage",

@@ -24,7 +24,7 @@ export const siteConfig = {
     zip: "21037",
     full: "175 Mayo Rd, Edgewater, MD 21037",
   },
-  directionsUrl: "https://maps.google.com/?q=175+Mayo+Rd+Edgewater+MD+21037",
+  directionsUrl: "https://share.google/htuScOr3S6pDTbQPj",
   mapEmbedUrl:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3106.188470558778!2d-76.5524675240212!3d38.87391917173007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7f574d538f5f1%3A0xc6cbfa864ac26ca0!2s175%20Mayo%20Rd%2C%20Edgewater%2C%20MD%2021037!5e0!3m2!1sen!2sus!4v1716503848123!5m2!1sen!2sus",
   yelpUrl: "https://www.yelp.com/biz/mayo-rd-tire-shop-edgewater-3",
