@@ -20,13 +20,14 @@ export default function Header({ locale = "en" }: { locale?: Locale }) {
     <header className="sticky top-0 z-50 bg-brand-dark/95 backdrop-blur border-b border-brand-surface-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Link href={homeHref} className="inline-block relative">
+          <Link prefetch={false} href={homeHref} className="inline-block relative">
             <Image
               src={siteConfig.logoUrl}
               alt="Mayo RD Tire Shop Logo"
               width={160}
               height={40}
               priority
+              style={{ width: "auto" }}
               className="h-10 w-auto object-contain"
             />
           </Link>
@@ -43,7 +44,7 @@ export default function Header({ locale = "en" }: { locale?: Locale }) {
 
             if (!link.submenu) {
               return (
-                <Link key={link.href} href={link.href} className={activeClass}>
+                <Link prefetch={false} key={link.href} href={link.href} className={activeClass}>
                   {link.label}
                 </Link>
               )
@@ -51,7 +52,7 @@ export default function Header({ locale = "en" }: { locale?: Locale }) {
 
             return (
               <div key={link.href} className="relative group">
-                <Link
+                <Link prefetch={false}
                   href={link.href}
                   aria-haspopup="true"
                   className={`inline-flex items-center gap-1 ${activeClass}`}
@@ -65,7 +66,7 @@ export default function Header({ locale = "en" }: { locale?: Locale }) {
                 <div className="invisible absolute left-0 top-full pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                   <div className="min-w-60 rounded-xl border border-brand-surface-light bg-brand-dark p-2 shadow-xl shadow-black/40">
                     {link.submenu.map((sub) => (
-                      <Link
+                      <Link prefetch={false}
                         key={sub.href}
                         href={sub.href}
                         className={`block rounded-lg px-4 py-2.5 text-sm transition-colors ${
@@ -85,7 +86,7 @@ export default function Header({ locale = "en" }: { locale?: Locale }) {
         </nav>
 
         <div className="hidden lg:flex items-center gap-5">
-          <Link
+          <Link prefetch={false}
             href={alternatePath}
             className="flex items-center gap-1 font-label text-sm font-bold tracking-wider text-brand-text-muted"
             aria-label={locale === "es" ? "Switch to English" : "Cambiar a español"}
@@ -119,7 +120,7 @@ export default function Header({ locale = "en" }: { locale?: Locale }) {
       {open && (
         <div className="lg:hidden bg-brand-dark border-t border-brand-surface-light">
           <nav className="flex flex-col px-4 py-6 gap-4 font-label text-sm font-bold tracking-wider">
-            <Link
+            <Link prefetch={false}
               href={alternatePath}
               onClick={() => setOpen(false)}
               className="flex items-center gap-1 text-brand-text-muted"
@@ -130,7 +131,7 @@ export default function Header({ locale = "en" }: { locale?: Locale }) {
             </Link>
             {links.map((link) => (
               <div key={link.href} className="flex flex-col gap-3">
-                <Link
+                <Link prefetch={false}
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className={
@@ -144,7 +145,7 @@ export default function Header({ locale = "en" }: { locale?: Locale }) {
                 {link.submenu && (
                   <div className="ml-4 flex flex-col gap-3 border-l border-brand-surface-light pl-4">
                     {link.submenu.map((sub) => (
-                      <Link
+                      <Link prefetch={false}
                         key={sub.href}
                         href={sub.href}
                         onClick={() => setOpen(false)}

@@ -72,6 +72,7 @@ export default function Footer({ locale = "en" }: { locale?: Locale }) {
               alt="Mayo RD Tire Shop Logo"
               width={192}
               height={48}
+              style={{ width: "auto" }}
               className="h-12 w-auto object-contain mb-6"
             />
             <p className="text-brand-text-muted max-w-sm mb-6">{t.description}</p>
@@ -95,7 +96,7 @@ export default function Footer({ locale = "en" }: { locale?: Locale }) {
             <ul className="space-y-3 font-medium text-brand-text-muted">
               {links.map((link) => (
                 <li key={link.href}>
-                  <Link
+                  <Link prefetch={false}
                     href={link.href}
                     className="hover:text-brand-orange transition-colors capitalize"
                   >
@@ -104,7 +105,7 @@ export default function Footer({ locale = "en" }: { locale?: Locale }) {
                 </li>
               ))}
               <li>
-                <Link
+                <Link prefetch={false}
                   href={t.mobileServiceHref}
                   className="hover:text-brand-orange transition-colors"
                 >
@@ -151,13 +152,13 @@ export default function Footer({ locale = "en" }: { locale?: Locale }) {
             aria-label="Legal"
             className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm font-medium text-brand-text-muted"
           >
-            <Link href={legal.privacy} className="hover:text-white transition-colors">
+            <Link prefetch={false} href={legal.privacy} className="hover:text-white transition-colors">
               {t.privacy}
             </Link>
-            <Link href={legal.cookies} className="hover:text-white transition-colors">
+            <Link prefetch={false} href={legal.cookies} className="hover:text-white transition-colors">
               {t.cookies}
             </Link>
-            <Link href={legal.terms} className="hover:text-white transition-colors">
+            <Link prefetch={false} href={legal.terms} className="hover:text-white transition-colors">
               {t.terms}
             </Link>
             <CookieSettingsButton
