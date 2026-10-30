@@ -1,12 +1,10 @@
 import type { Metadata } from "next"
-import Script from "next/script"
 import { Work_Sans, Lexend, Space_Grotesk } from "next/font/google"
 import ConditionalChrome from "@/components/conditional-chrome"
 import HtmlLangSetter from "@/components/html-lang-setter"
 import CookieConsent from "@/components/consent/cookie-consent"
 import { consentBootstrapScript } from "@/lib/consent"
-import ConversionTracker from "@/components/conversion-tracker"
-import { GA_CONVERSION_ID } from "@/lib/gtag"
+import { GTM_ID } from "@/lib/gtag"
 import { siteConfig } from "@/lib/data"
 import { SITE_URL, OG_IMAGE, localBusinessSchema, jsonLdProps } from "@/lib/seo"
 import "./globals.css"
@@ -56,33 +54,41 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Consent Mode v2 defaults must be queued before the GTM container loads. */}
+        <script id="consent-defaults" dangerouslySetInnerHTML={{ __html: consentBootstrapScript }} />
+        {/* Google Tag Manager */}
+        <script
+          id="gtm-init"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');`,
+          }}
+        />
+        {/* End Google Tag Manager */}
+      </head>
       <body
         className={`${workSans.variable} ${lexend.variable} ${spaceGrotesk.variable} font-sans bg-brand-dark text-brand-text min-h-screen`}
       >
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+          />
+        </noscript>
+        {/* End Google Tag Manager (noscript) */}
         <script {...jsonLdProps(localBusinessSchema())} />
         <HtmlLangSetter />
         <ConditionalChrome>{children}</ConditionalChrome>
         <CookieConsent />
-        <ConversionTracker />
-
-        {/* Consent Mode v2 defaults are queued before gtag.js so no ads
-            cookies are written until the visitor opts in. Only the Google
-            Ads tag is loaded — no Google Tag Manager containers. */}
-        <Script id="consent-defaults" strategy="beforeInteractive">
-          {consentBootstrapScript}
-        </Script>
-        <Script id="google-tag" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
-            window.gtag('js', new Date());
-            window.gtag('config', '${GA_CONVERSION_ID}');
-          `}
-        </Script>
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_CONVERSION_ID}`}
-          strategy="afterInteractive"
-        />
       </body>
     </html>
   )

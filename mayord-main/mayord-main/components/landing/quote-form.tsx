@@ -54,7 +54,7 @@ export default function QuoteForm({
     e.preventDefault()
     if (!size.trim() || !name.trim() || !phone.trim()) return
 
-    // Fire the Google Ads lead conversion — this is a qualified lead.
+    // Pushes { event: 'mayord_contact_form_success' } for the GTM "Contact via web" trigger.
     trackFormLead(label)
 
     // Pre-fill the visitor's SMS composer to the shop (mobile-first ads audience).
