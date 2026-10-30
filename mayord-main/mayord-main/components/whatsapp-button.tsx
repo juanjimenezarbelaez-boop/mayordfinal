@@ -1,7 +1,11 @@
+"use client"
+
 import type { Locale } from "@/lib/i18n"
+import { WHATSAPP_NUMBER } from "@/lib/data"
+import { trackWhatsApp } from "@/lib/gtag"
 
 export default function WhatsAppButton({ locale = "en" }: { locale?: Locale }) {
-  const phoneNumber = "12405958547"
+  const phoneNumber = WHATSAPP_NUMBER
   const messageText =
     locale === "es"
       ? "¡Hola! Estoy interesado en sus servicios de llantas."
@@ -15,6 +19,7 @@ export default function WhatsAppButton({ locale = "en" }: { locale?: Locale }) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={ariaLabel}
+      onClick={() => trackWhatsApp("floating_button")}
       className="fixed bottom-6 right-6 z-40 hidden h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-lg transition-transform hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#25D366] lg:flex"
     >
       <svg

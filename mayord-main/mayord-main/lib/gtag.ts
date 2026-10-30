@@ -1,19 +1,15 @@
-// Google Ads tag (gtag.js) configuration and conversion helpers.
-//
-// Only the Google Ads tag AW-18349807750 is loaded. Link-based conversions
-// (WhatsApp, directions, phone calls) are fired by a single global click
-// listener (see components/conversion-tracker.tsx) so every matching link on
-// the site is covered without per-component wiring or double counting.
+// Google Tag Manager is the only tag loaded on the site (container GTM-N88SGK53).
+// All Google Ads conversions are configured inside GTM; the app only pushes
+// custom events to window.dataLayer for the GTM triggers to pick up.
 
-export const GA_CONVERSION_ID = "AW-18349807750"
+export const GTM_ID = "GTM-N88SGK53"
 
-export const CONVERSIONS = {
-  whatsapp: `${GA_CONVERSION_ID}/tCdBCK-pse4cEIax761E`,
-  directions: `${GA_CONVERSION_ID}/AToeCI2Vpd4cEIax761E`,
-  lead: `${GA_CONVERSION_ID}/JvOCCM-3t-AcEIax761E`,
+export const GTM_EVENTS = {
+  contactFormSuccess: "mayord_contact_form_success",
+  whatsappClick: "mayord_whatsapp_click",
+  phoneClick: "mayord_phone_click",
+  directionsClick: "mayord_directions_click",
 } as const
-
-export type ConversionKind = keyof typeof CONVERSIONS
 
 declare global {
   interface Window {
@@ -22,47 +18,24 @@ declare global {
   }
 }
 
-type EventParams = Record<string, unknown>
-
-function canTrack() {
-  return typeof window !== "undefined" && typeof window.gtag === "function"
-}
-
-export function trackEvent(name: string, params: EventParams = {}) {
-  if (!canTrack()) return
-  window.gtag!("event", name, params)
-}
-
-export function trackConversion(kind: ConversionKind) {
-  if (!canTrack()) return
-  window.gtag!("event", "conversion", { send_to: CONVERSIONS[kind] })
-}
-
-// Maps a link href to its conversion kind, or null if it isn't a conversion link.
-export function conversionForHref(href: string): ConversionKind | null {
-  const value = href.toLowerCase()
-  if (value.includes("wa.me") || value.includes("whatsapp.com")) return "whatsapp"
-  if (value.includes("maps.google.com") || value.includes("maps.app.goo.gl")) return "directions"
-  if (value.startsWith("tel:")) return "lead"
-  return null
-}
-
-// The click helpers below only send descriptive events; the Ads conversion
-// itself is sent by the global click listener.
-export function trackPhoneCall(label: string) {
-  trackEvent("phone_call_click", { label })
+export function pushDataLayer(payload: Record<string, unknown>) {
+  if (typeof window === "undefined") return
+  window.dataLayer = window.dataLayer || []
+  window.dataLayer.push(payload)
 }
 
 export function trackWhatsApp(label: string) {
-  trackEvent("whatsapp_click", { label })
+  pushDataLayer({ event: GTM_EVENTS.whatsappClick, label })
+}
+
+export function trackPhoneCall(label: string) {
+  pushDataLayer({ event: GTM_EVENTS.phoneClick, label })
 }
 
 export function trackDirections(label: string) {
-  trackEvent("directions_click", { label })
+  pushDataLayer({ event: GTM_EVENTS.directionsClick, label })
 }
 
-// A successful lead form submission counts as a lead conversion.
 export function trackFormLead(label: string) {
-  trackEvent("form_submit_lead", { label })
-  trackConversion("lead")
+  pushDataLayer({ event: GTM_EVENTS.contactFormSuccess, label })
 }

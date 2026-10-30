@@ -138,7 +138,7 @@ export default function ContactForm({ locale = "en" }: { locale?: Locale }) {
     setSending(true)
     // TODO: wire up to your form backend (e.g. a server action, Formspree, or an API route)
     await new Promise((resolve) => setTimeout(resolve, 800))
-    // Fire the Google Ads lead conversion.
+    // Pushes { event: 'mayord_contact_form_success' } for the GTM "Contact via web" trigger.
     trackFormLead("contact_page")
     setSending(false)
     setSubmitted(true)
