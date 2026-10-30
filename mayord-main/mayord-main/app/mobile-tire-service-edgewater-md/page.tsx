@@ -147,7 +147,7 @@ export default function MobileTireServicePage() {
               <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-medium text-brand-text-muted">
                 <span className="inline-flex items-center gap-1.5">
                   <Star size={16} className="fill-brand-orange text-brand-orange" />
-                  4.4 stars · 206 reviews
+                  4.7 stars · 300+ reviews
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <Clock size={16} className="text-brand-orange" />

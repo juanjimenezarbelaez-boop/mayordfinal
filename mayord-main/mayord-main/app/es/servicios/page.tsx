@@ -120,7 +120,7 @@ const communities = [
 ]
 
 const reasons = [
-  { icon: Star, title: "4.4★", subtitle: "206 reseñas en Google y Yelp" },
+  { icon: Star, title: "4.7★", subtitle: "300+ reseñas en Google y Yelp" },
   { icon: Clock, title: "~20 min", subtitle: "Entra y sale, la mayoría de servicios" },
   { icon: Phone, title: "Abierto 7 Días", subtitle: "Sin cita, siempre bienvenido" },
   { icon: Users, title: "Negocio Familiar", subtitle: "y operado localmente" },

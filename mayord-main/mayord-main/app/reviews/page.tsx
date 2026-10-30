@@ -7,9 +7,9 @@ import { pageMetadata, breadcrumbSchema, jsonLdProps } from "@/lib/seo"
 import ReviewsList from "@/components/reviews/reviews-list"
 
 export const metadata: Metadata = pageMetadata({
-  title: "Customer Reviews — 4.4 Stars Across Google & Yelp",
+  title: "Customer Reviews — 4.7 Stars Across Google & Yelp",
   description:
-    "Read real reviews from Edgewater and Annapolis, MD drivers about Mayo RD Tire Shop's fast service, honest pricing, and quality new and used tires. Rated 4.4 stars across Google and Yelp.",
+    "Read real reviews from Edgewater and Annapolis, MD drivers about Mayo RD Tire Shop's fast service, honest pricing, and quality new and used tires. Rated 4.7 stars across Google and Yelp.",
   path: "/reviews",
 })
 

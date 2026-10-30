@@ -9,9 +9,9 @@ import type { NormalizedReview, ReviewsResponse } from "@/app/api/reviews/route"
  * APIs are unavailable so the section always reflects real numbers.
  */
 
-// Google Business Profile: 4.4 stars, 188 ratings
-const GOOGLE_RATING = 4.4
-const GOOGLE_COUNT = 188
+// Google Business Profile: 4.7 stars, 300+ ratings
+const GOOGLE_RATING = 4.7
+const GOOGLE_COUNT = 300
 
 // Yelp: 4.1 stars, 18 reviews
 const YELP_RATING = 4.1

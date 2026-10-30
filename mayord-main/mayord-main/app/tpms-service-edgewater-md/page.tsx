@@ -47,7 +47,7 @@ const included = [
 ]
 
 const trust = [
-  { icon: Star, label: "4.4 stars · 206 reviews" },
+  { icon: Star, label: "4.7 stars · 300+ reviews" },
   { icon: Clock, label: "In & out in ~20 minutes" },
   { icon: CheckCircle2, label: "Open 7 days" },
   { icon: Gauge, label: "Family-owned" },
@@ -111,11 +111,11 @@ export default function TpmsServiceLandingPage() {
 
           <p className="mt-6 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm font-medium text-brand-text-muted sm:text-base">
             <span className="inline-flex items-center gap-1 font-bold text-brand-orange">
-              4.4
+              4.7
               <Star size={16} className="fill-current" />
             </span>
             <span aria-hidden="true">&middot;</span>
-            <span>206 reviews</span>
+            <span>300+ reviews</span>
             <span aria-hidden="true">&middot;</span>
             <span>All makes &amp; models</span>
             <span aria-hidden="true">&middot;</span>
