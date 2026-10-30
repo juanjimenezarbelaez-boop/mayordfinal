@@ -5,6 +5,7 @@ import useSWR from "swr"
 import { ExternalLink, Quote, Star } from "lucide-react"
 import { siteConfig } from "@/lib/data"
 import { realReviewsFallback } from "@/lib/reviews-fallback"
+import { formatReviewCount } from "@/lib/format-review-count"
 import type { NormalizedReview, ReviewsResponse } from "@/app/api/reviews/route"
 
 const fetcher = (url: string) =>
@@ -98,7 +99,7 @@ function SourceSummaryCard({
             ))}
           </div>
         </div>
-        <p className="text-xs font-medium text-gray-500">{count} reviews</p>
+        <p className="text-xs font-medium text-gray-500">{formatReviewCount(count)} reviews</p>
       </div>
       <ExternalLink
         size={16}

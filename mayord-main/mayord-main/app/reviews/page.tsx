@@ -5,6 +5,7 @@ import { images } from "@/lib/data"
 import { realReviewsFallback } from "@/lib/reviews-fallback"
 import { pageMetadata, breadcrumbSchema, jsonLdProps } from "@/lib/seo"
 import ReviewsList from "@/components/reviews/reviews-list"
+import { formatReviewCount } from "@/lib/format-review-count"
 
 export const metadata: Metadata = pageMetadata({
   title: "Customer Reviews — 4.7 Stars Across Google & Yelp",
@@ -56,7 +57,7 @@ export default function ReviewsPage() {
             </div>
           </div>
           <p className="text-xl sm:text-2xl text-white/90 max-w-3xl mx-auto font-medium">
-            {realReviewsFallback.totalCount} reviews across Google &amp; Yelp — see what
+            {formatReviewCount(realReviewsFallback.totalCount)} reviews across Google &amp; Yelp — see what
             our community has to say about our fast service, honest pricing, and
             high-quality tires.
           </p>

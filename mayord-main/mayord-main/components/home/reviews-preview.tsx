@@ -6,6 +6,7 @@ import { ExternalLink, Quote, Star } from "lucide-react"
 import { siteConfig } from "@/lib/data"
 import type { Locale } from "@/lib/i18n"
 import { realReviewsFallback } from "@/lib/reviews-fallback"
+import { formatReviewCount } from "@/lib/format-review-count"
 import type { NormalizedReview, ReviewsResponse } from "@/app/api/reviews/route"
 
 const copy = {
@@ -21,7 +22,7 @@ const copy = {
       </>
     ),
     leaveReview: "Leave us a review",
-    reviewsAcross: (count: number) => `${count} reviews across Google & Yelp`,
+    reviewsAcross: (count: number) => `${formatReviewCount(count)} reviews across Google & Yelp`,
     reviewsWord: "reviews",
     all: "All",
   },
@@ -37,7 +38,7 @@ const copy = {
       </>
     ),
     leaveReview: "Déjenos una reseña",
-    reviewsAcross: (count: number) => `${count} reseñas en Google y Yelp`,
+    reviewsAcross: (count: number) => `${formatReviewCount(count)} reseñas en Google y Yelp`,
     reviewsWord: "reseñas",
     all: "Todas",
   },
@@ -163,7 +164,7 @@ function SourceSummaryCard({
             ))}
           </div>
         </div>
-        <p className="text-xs font-medium text-gray-500">{count} reviews</p>
+        <p className="text-xs font-medium text-gray-500">{formatReviewCount(count)} reviews</p>
       </div>
       <ExternalLink
         size={16}
