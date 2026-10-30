@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import { Camera, ChevronRight, HandHeart, MapPin, Phone, Users } from "lucide-react"
+import { ChevronRight, HandHeart, MapPin, Phone, Users } from "lucide-react"
 import { images, siteConfig } from "@/lib/data"
 import { pageMetadata, breadcrumbSchema, jsonLdProps } from "@/lib/seo"
 import PhoneCallLink from "@/components/phone-call-link"
@@ -72,19 +72,16 @@ export default function AboutPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
-            {/* Family photo placeholder */}
+            {/* Family photo */}
             <div className="w-full lg:w-1/2">
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-brand-dark flex flex-col items-center justify-center text-center px-8 border-2 border-dashed border-brand-orange/40">
-                <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-orange/15 mb-6">
-                  <Camera size={30} className="text-brand-orange" />
-                </span>
-                <p className="text-brand-text font-label font-bold tracking-wider mb-2">
-                  FAMILY PHOTO COMING SOON
-                </p>
-                <p className="text-brand-text-muted text-sm max-w-xs leading-relaxed">
-                  A picture of the Hagans family out front of the orange shop
-                  goes right here.
-                </p>
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-brand-dark">
+                <Image
+                  src="/images/hagans-family.png"
+                  alt="The Hagans family and team in Mayo RD Tire Shop shirts standing in front of the orange shop in Edgewater, MD"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                />
               </div>
               <p className="mt-4 text-sm text-gray-500 font-medium italic text-center">
                 The Hagans family — Mayo RD Tire Shop, Edgewater, MD
